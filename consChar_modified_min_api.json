@@ -1,0 +1,1230 @@
+{
+  "444": {
+    "inputs": {
+      "ckpt_name": "realvisxlV40_v30InpaintBakedvae.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "445": {
+    "inputs": {
+      "text": [
+        "979",
+        0
+      ],
+      "clip": [
+        "444",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "446": {
+    "inputs": {
+      "text": "deformed, watermark, signature, text",
+      "clip": [
+        "444",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "970": {
+    "inputs": {
+      "ckpt_name": "dreamshaperXL_lightningDPMSDE.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "971": {
+    "inputs": {
+      "text": [
+        "980",
+        0
+      ],
+      "clip": [
+        "970",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "972": {
+    "inputs": {
+      "guide_size": 384,
+      "guide_size_for": true,
+      "max_size": 1024,
+      "seed": 1073953721129240,
+      "steps": 5,
+      "cfg": 1.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 0.35000000000000003,
+      "feather": 5,
+      "noise_mask": true,
+      "force_inpaint": true,
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 10,
+      "bbox_crop_factor": 2.5,
+      "sam_detection_hint": "center-1",
+      "sam_dilation": -10,
+      "sam_threshold": 0.93,
+      "sam_bbox_expansion": 0,
+      "sam_mask_hint_threshold": 0.7,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": [
+        "988",
+        0
+      ],
+      "cycle": 1,
+      "inpaint_model": false,
+      "noise_mask_feather": 20,
+      "image": [
+        "1169",
+        0
+      ],
+      "model": [
+        "1010",
+        0
+      ],
+      "clip": [
+        "970",
+        1
+      ],
+      "vae": [
+        "970",
+        2
+      ],
+      "positive": [
+        "974",
+        0
+      ],
+      "negative": [
+        "975",
+        0
+      ],
+      "bbox_detector": [
+        "973",
+        0
+      ],
+      "sam_model_opt": [
+        "996",
+        0
+      ],
+      "segm_detector_opt": [
+        "973",
+        1
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "973": {
+    "inputs": {
+      "model_name": "bbox/Eyes.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "974": {
+    "inputs": {
+      "text": "striking eyes",
+      "clip": [
+        "970",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "975": {
+    "inputs": {
+      "text": "deformed pupils, deformed eyes, ugly eyes",
+      "clip": [
+        "970",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "976": {
+    "inputs": {
+      "faceanalysis": [
+        "977",
+        0
+      ],
+      "image": [
+        "993",
+        0
+      ]
+    },
+    "class_type": "FaceKeypointsPreprocessor",
+    "_meta": {
+      "title": "Face Keypoints Preprocessor"
+    }
+  },
+  "977": {
+    "inputs": {
+      "provider": "CUDA"
+    },
+    "class_type": "InstantIDFaceAnalysis",
+    "_meta": {
+      "title": "InstantID Face Analysis"
+    }
+  },
+  "979": {
+    "inputs": {
+      "prompt": "RAW photo of man age 28, dancing in the club"
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "⚙️ CR Prompt Text - Positive"
+    }
+  },
+  "980": {
+    "inputs": {
+      "prompt": "nipple, nude, naked, lowres, getty, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name, trademark, watermark, title, multiple view, reference sheet, mutated hands and fingers, poorly drawn face, mutation, deformed, ugly, bad proportions, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, tatoo, amateur drawing, odd eyes, uneven eyes, unnatural face, uneven nostrils, crooked mouth, bad teeth, crooked teeth, photoshop, video game, censor, censored, ghost, b&w, weird colors, gradient background, spotty background, blurry background, ugly background, simple background, realistic, out of frame, extra objects, tiling, poorly drawn hands, poorly drawn feet, poorly drawn face, out of focus, blurry, very long body, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn eyes, cloned face, disfigured, deformed, cross-eye, extra limbs, missing limb, malformed hands, mutated, morbid, mutilated, disfigured, extra arms, extra hands, mangled fingers, contorted, conjoined, mismatched limbs, mismatched parts, bad perspective, black and white, oversaturated, undersaturated, bad shadow, cropped image, draft, grainy, pixelated"
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "⚙️ CR Prompt Text - Negative"
+    }
+  },
+  "983": {
+    "inputs": {
+      "seed": 1231234239
+    },
+    "class_type": "Seed",
+    "_meta": {
+      "title": "Global Seed"
+    }
+  },
+  "988": {
+    "inputs": {
+      "prompt": ""
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "Eye Enhancer prompt"
+    }
+  },
+  "991": {
+    "inputs": {
+      "image": "myheadshotfunny.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "992": {
+    "inputs": {
+      "seed": [
+        "983",
+        3
+      ],
+      "steps": 4,
+      "cfg": 1.5,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.9500000000000001,
+      "model": [
+        "970",
+        0
+      ],
+      "positive": [
+        "1021",
+        0
+      ],
+      "negative": [
+        "971",
+        0
+      ],
+      "latent_image": [
+        "995",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "993": {
+    "inputs": {
+      "samples": [
+        "992",
+        0
+      ],
+      "vae": [
+        "970",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "995": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "996": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "Prefer GPU"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "1000": {
+    "inputs": {
+      "control_net_name": "instantid-controlnet.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "1001": {
+    "inputs": {
+      "weight": 0.81,
+      "start_at": 0.001,
+      "end_at": 0.999,
+      "instantid": [
+        "1002",
+        0
+      ],
+      "insightface": [
+        "1003",
+        0
+      ],
+      "control_net": [
+        "1000",
+        0
+      ],
+      "image": [
+        "991",
+        0
+      ],
+      "model": [
+        "970",
+        0
+      ],
+      "positive": [
+        "1011",
+        0
+      ],
+      "negative": [
+        "971",
+        0
+      ],
+      "image_kps": [
+        "1279",
+        0
+      ]
+    },
+    "class_type": "ApplyInstantID",
+    "_meta": {
+      "title": "Apply InstantID"
+    }
+  },
+  "1002": {
+    "inputs": {
+      "instantid_file": "instantid-ip-adapter.bin"
+    },
+    "class_type": "InstantIDModelLoader",
+    "_meta": {
+      "title": "Load InstantID Model"
+    }
+  },
+  "1003": {
+    "inputs": {
+      "provider": "CUDA"
+    },
+    "class_type": "InstantIDFaceAnalysis",
+    "_meta": {
+      "title": "InstantID Face Analysis"
+    }
+  },
+  "1005": {
+    "inputs": {
+      "samples": [
+        "1006",
+        0
+      ],
+      "vae": [
+        "970",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "1006": {
+    "inputs": {
+      "seed": 760055130669875,
+      "steps": 5,
+      "cfg": 1.2,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.9500000000000001,
+      "model": [
+        "1010",
+        0
+      ],
+      "positive": [
+        "1001",
+        1
+      ],
+      "negative": [
+        "1001",
+        2
+      ],
+      "latent_image": [
+        "1276",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "1008": {
+    "inputs": {
+      "preset": "FACEID PLUS V2",
+      "lora_strength": 0.6,
+      "provider": "CPU",
+      "model": [
+        "1001",
+        0
+      ]
+    },
+    "class_type": "IPAdapterUnifiedLoaderFaceID",
+    "_meta": {
+      "title": "IPAdapter Unified Loader FaceID"
+    }
+  },
+  "1009": {
+    "inputs": {
+      "weight": 0.5,
+      "weight_faceidv2": 1,
+      "weight_type": "linear",
+      "combine_embeds": "concat",
+      "start_at": 0,
+      "end_at": 1,
+      "embeds_scaling": "V only",
+      "model": [
+        "1008",
+        0
+      ],
+      "ipadapter": [
+        "1008",
+        1
+      ],
+      "image": [
+        "991",
+        0
+      ]
+    },
+    "class_type": "IPAdapterFaceID",
+    "_meta": {
+      "title": "IPAdapter FaceID"
+    }
+  },
+  "1010": {
+    "inputs": {
+      "tonemap_multiplier": 8,
+      "rescale_multiplier": 0.62,
+      "model": [
+        "1009",
+        0
+      ]
+    },
+    "class_type": "TonemapNoiseWithRescaleCFG",
+    "_meta": {
+      "title": "TonemapNoiseWithRescaleCFG"
+    }
+  },
+  "1011": {
+    "inputs": {
+      "text": [
+        "979",
+        0
+      ],
+      "clip": [
+        "970",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1015": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "scale_by": 1.5,
+      "image": [
+        "972",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "Upscale Image By"
+    }
+  },
+  "1016": {
+    "inputs": {
+      "brightness": 0,
+      "contrast": 1,
+      "saturation": 1,
+      "sharpness": 1.1,
+      "blur": 0,
+      "gaussian_blur": 0,
+      "edge_enhance": 0.1,
+      "detail_enhance": "true",
+      "image": [
+        "1015",
+        0
+      ]
+    },
+    "class_type": "Image Filter Adjustments",
+    "_meta": {
+      "title": "Image Filter Adjustments"
+    }
+  },
+  "1021": {
+    "inputs": {
+      "text": [
+        "979",
+        0
+      ],
+      "clip": [
+        "970",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1078": {
+    "inputs": {
+      "seed": [
+        "983",
+        3
+      ],
+      "steps": [
+        "1166",
+        0
+      ],
+      "cfg": 3.5,
+      "sampler_name": "dpmpp_2m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.8,
+      "model": [
+        "444",
+        0
+      ],
+      "positive": [
+        "1080",
+        0
+      ],
+      "negative": [
+        "1080",
+        1
+      ],
+      "latent_image": [
+        "1080",
+        3
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "1079": {
+    "inputs": {
+      "samples": [
+        "1078",
+        0
+      ],
+      "vae": [
+        "444",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "1080": {
+    "inputs": {
+      "positive": [
+        "445",
+        0
+      ],
+      "negative": [
+        "446",
+        0
+      ],
+      "vae": [
+        "444",
+        2
+      ],
+      "pixels": [
+        "1113",
+        0
+      ],
+      "mask": [
+        "1123",
+        0
+      ]
+    },
+    "class_type": "INPAINT_VAEEncodeInpaintConditioning",
+    "_meta": {
+      "title": "VAE Encode & Inpaint Conditioning"
+    }
+  },
+  "1092": {
+    "inputs": {
+      "expand": 10,
+      "tapered_corners": true,
+      "mask": [
+        "1100",
+        1
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "1098": {
+    "inputs": {
+      "model_name": "sam2_hiera_large.pt"
+    },
+    "class_type": "SAM2ModelLoader (segment anything)",
+    "_meta": {
+      "title": "SAM2ModelLoader (segment anything)"
+    }
+  },
+  "1099": {
+    "inputs": {
+      "model_name": "GroundingDINO_SwinB (938MB)"
+    },
+    "class_type": "GroundingDinoModelLoader (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoModelLoader (segment anything)"
+    }
+  },
+  "1100": {
+    "inputs": {
+      "prompt": "watermark signature",
+      "threshold": [
+        "1309",
+        1
+      ],
+      "sam_model": [
+        "1098",
+        0
+      ],
+      "grounding_dino_model": [
+        "1099",
+        0
+      ],
+      "image": [
+        "1113",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "1113": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": true,
+      "destination": [
+        "1005",
+        0
+      ],
+      "source": [
+        "1127",
+        0
+      ],
+      "mask": [
+        "1114",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "1114": {
+    "inputs": {
+      "image": "common_watermark_mask.png",
+      "channel": "red",
+      "upload": "image"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Load Image (as Mask)"
+    }
+  },
+  "1120": {
+    "inputs": {
+      "image": "common_watermark_image.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "1123": {
+    "inputs": {
+      "mask1": [
+        "1228",
+        0
+      ],
+      "mask2": [
+        "1193",
+        1
+      ]
+    },
+    "class_type": "AddMask",
+    "_meta": {
+      "title": "Pixelwise(MASK + MASK)"
+    }
+  },
+  "1127": {
+    "inputs": {
+      "blend_factor": 0.6,
+      "blend_mode": "normal",
+      "image1": [
+        "1005",
+        0
+      ],
+      "image2": [
+        "1120",
+        0
+      ]
+    },
+    "class_type": "ImageBlend",
+    "_meta": {
+      "title": "ImageBlend"
+    }
+  },
+  "1157": {
+    "inputs": {
+      "value": 7
+    },
+    "class_type": "JWInteger",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "1158": {
+    "inputs": {
+      "model": "microsoft/Florence-2-base-ft",
+      "precision": "fp16",
+      "attention": "sdpa"
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  },
+  "1159": {
+    "inputs": {
+      "text_input": "person, head, body, signature, watermark, watermark",
+      "task": "caption_to_phrase_grounding",
+      "fill_mask": true,
+      "keep_model_loaded": true,
+      "max_new_tokens": 1024,
+      "num_beams": 1,
+      "do_sample": true,
+      "output_mask_select": "",
+      "image": [
+        "1005",
+        0
+      ],
+      "florence2_model": [
+        "1221",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "1161": {
+    "inputs": {
+      "text": [
+        "1159",
+        2
+      ],
+      "sub_text": "watermark",
+      "case_insensitive": true
+    },
+    "class_type": "Text Contains",
+    "_meta": {
+      "title": "Text Contains"
+    }
+  },
+  "1162": {
+    "inputs": {
+      "boolean": [
+        "1225",
+        0
+      ],
+      "number_a": [
+        "1163",
+        0
+      ],
+      "number_b": [
+        "1164",
+        0
+      ]
+    },
+    "class_type": "Number Input Switch",
+    "_meta": {
+      "title": "Number Input Switch"
+    }
+  },
+  "1163": {
+    "inputs": {
+      "a": 1
+    },
+    "class_type": "CM_IntToNumber",
+    "_meta": {
+      "title": "IntToNumber"
+    }
+  },
+  "1164": {
+    "inputs": {
+      "a": 0
+    },
+    "class_type": "CM_IntToNumber",
+    "_meta": {
+      "title": "IntToNumber"
+    }
+  },
+  "1166": {
+    "inputs": {
+      "a": [
+        "1157",
+        0
+      ],
+      "b": [
+        "1162",
+        2
+      ]
+    },
+    "class_type": "JWIntegerMul",
+    "_meta": {
+      "title": "Integer Multiply"
+    }
+  },
+  "1168": {
+    "inputs": {
+      "input": [
+        "1162",
+        2
+      ],
+      "output": ""
+    },
+    "class_type": "Display Int (rgthree)",
+    "_meta": {
+      "title": "Display Int (rgthree)"
+    }
+  },
+  "1169": {
+    "inputs": {
+      "Input": [
+        "1178",
+        0
+      ],
+      "image1": [
+        "1005",
+        0
+      ],
+      "image2": [
+        "1079",
+        0
+      ]
+    },
+    "class_type": "CR Image Input Switch",
+    "_meta": {
+      "title": "🔀 CR Image Input Switch"
+    }
+  },
+  "1175": {
+    "inputs": {
+      "print_to_console": false,
+      "console_title": "",
+      "execute": "Always",
+      "text": [
+        "1159",
+        2
+      ],
+      "display": " person<loc_0><loc_0><loc_842><loc_998>head<loc_95><loc_0><loc_516><loc_438>body<loc_0><loc_389><loc_686><loc_998>watermark<loc_597><loc_634><loc_749><loc_697>"
+    },
+    "class_type": "ttN textDebug",
+    "_meta": {
+      "title": "textDebug"
+    }
+  },
+  "1178": {
+    "inputs": {
+      "index": [
+        "1162",
+        2
+      ],
+      "interval": 1
+    },
+    "class_type": "CR Index Increment",
+    "_meta": {
+      "title": "🔢 CR Index Increment"
+    }
+  },
+  "1193": {
+    "inputs": {
+      "select": [
+        "1197",
+        0
+      ],
+      "images1": [
+        "1113",
+        0
+      ],
+      "mask1_opt": [
+        "1228",
+        0
+      ],
+      "mask2_opt": [
+        "1092",
+        0
+      ]
+    },
+    "class_type": "ImageMaskSwitch",
+    "_meta": {
+      "title": "Switch (images, mask)"
+    }
+  },
+  "1197": {
+    "inputs": {
+      "index": [
+        "1162",
+        2
+      ],
+      "interval": 1
+    },
+    "class_type": "CR Index Increment",
+    "_meta": {
+      "title": "🔢 CR Index Increment"
+    }
+  },
+  "1206": {
+    "inputs": {
+      "float": 0.3
+    },
+    "class_type": "ttN float",
+    "_meta": {
+      "title": "SAM2 Thresh"
+    }
+  },
+  "1208": {
+    "inputs": {
+      "Value": [
+        "1162",
+        2
+      ]
+    },
+    "class_type": "DF_Int_to_Float",
+    "_meta": {
+      "title": "Int to Float"
+    }
+  },
+  "1221": {
+    "inputs": {
+      "model": "microsoft/Florence-2-large",
+      "precision": "fp16",
+      "attention": "sdpa"
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  },
+  "1223": {
+    "inputs": {
+      "text": [
+        "1159",
+        2
+      ],
+      "sub_text": "signature",
+      "case_insensitive": true
+    },
+    "class_type": "Text Contains",
+    "_meta": {
+      "title": "Text Contains"
+    }
+  },
+  "1225": {
+    "inputs": {
+      "boolean_a": [
+        "1161",
+        0
+      ],
+      "boolean_b": [
+        "1223",
+        0
+      ]
+    },
+    "class_type": "Logic Comparison OR",
+    "_meta": {
+      "title": "Logic Comparison OR"
+    }
+  },
+  "1228": {
+    "inputs": {
+      "expand": 4,
+      "tapered_corners": true,
+      "mask": [
+        "1114",
+        0
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "1253": {
+    "inputs": {
+      "filename_prefix": "FinalOutput",
+      "images": [
+        "1016",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "1261": {
+    "inputs": {
+      "crop_size_margin": 2,
+      "crop_pos_margin": 0.5,
+      "image": [
+        "976",
+        0
+      ]
+    },
+    "class_type": "JCo_CropAroundKPS",
+    "_meta": {
+      "title": "Prep Crop Around Keypoints"
+    }
+  },
+  "1262": {
+    "inputs": {
+      "x": [
+        "1261",
+        2
+      ],
+      "y": [
+        "1261",
+        3
+      ],
+      "width": [
+        "1261",
+        0
+      ],
+      "height": [
+        "1261",
+        1
+      ],
+      "image": [
+        "976",
+        0
+      ]
+    },
+    "class_type": "ETN_CropImage",
+    "_meta": {
+      "title": "Crop Image"
+    }
+  },
+  "1264": {
+    "inputs": {
+      "x": [
+        "1261",
+        2
+      ],
+      "y": [
+        "1261",
+        3
+      ],
+      "width": [
+        "1261",
+        0
+      ],
+      "height": [
+        "1261",
+        1
+      ],
+      "image": [
+        "993",
+        0
+      ]
+    },
+    "class_type": "ETN_CropImage",
+    "_meta": {
+      "title": "Crop Image"
+    }
+  },
+  "1275": {
+    "inputs": {
+      "pixels": [
+        "1264",
+        0
+      ],
+      "vae": [
+        "970",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "1276": {
+    "inputs": {
+      "blend_factor": 0.75,
+      "samples1": [
+        "1278",
+        0
+      ],
+      "samples2": [
+        "1277",
+        0
+      ]
+    },
+    "class_type": "LatentBlend",
+    "_meta": {
+      "title": "Latent Blend"
+    }
+  },
+  "1277": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "1278": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": 1024,
+      "height": 1024,
+      "crop": "disabled",
+      "samples": [
+        "1275",
+        0
+      ]
+    },
+    "class_type": "LatentUpscale",
+    "_meta": {
+      "title": "Upscale Latent"
+    }
+  },
+  "1279": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": 1024,
+      "height": 1024,
+      "crop": "disabled",
+      "image": [
+        "1262",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "1309": {
+    "inputs": {
+      "value": "1 - a * (1 - b)",
+      "a": [
+        "1208",
+        0
+      ],
+      "b": [
+        "1206",
+        0
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  }
+}
