@@ -65,8 +65,8 @@ build:
     # comfyui_controlnet_aux
     # https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/requirements.txt
     - importlib_metadata
-    - opencv-python-headless==4.7.0.72 # Pinned versions to avoid conflicts
-    - opencv-python==4.7.0.72
+    - opencv-python-headless
+    - opencv-python
     - filelock
     - numpy
     - scikit-image
